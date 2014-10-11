@@ -1,0 +1,15 @@
+####ChangeLog####
+
+v0.1 - Wolfi211
+	- Added:
+		- Creative tab for the mod
+		- Titanium Ingot
+		- Raw Titanium Dust
+		- Pure Titanium Pile
+		- Graphene Sheet
+		- Titanium Tools
+		- Titanium Armor //not finished yet |||WIP||| ***delayed***
+		- Titanium Ore //no worldgen yet
+		- Titanium Block
+		- recipe for Titanium Block
+		
