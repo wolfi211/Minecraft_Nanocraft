@@ -12,4 +12,5 @@ v0.1 - Wolfi211
 		- Titanium Ore //no worldgen yet
 		- Titanium Block
 		- recipe for Titanium Block
+		- started to create the "Melter"
 		
