@@ -15,4 +15,9 @@ v0.1 - Wolfi211		##2014.10.10##
 		- started to create the "Melter"
 		
 v0.1.1 - Wolfi211	##2014.10.11##
-	- Still working on the melter
+	- Still working on the melter (WIP)
+	- found bug: melter has no front
+
+v0.1.2 - Wolfi211 	##2014.10.12##
+	- added item Graphene Dust
+	- added textures for rawTitaniumDust; pureTitaniumPile; GrapheneSheet; GrapheneDust

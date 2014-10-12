@@ -39,6 +39,7 @@ public class Nanocraft {
 	public static Item item_rawTitaniumDust;
 	public static Item item_pureTitaniumPile;
 	public static Item item_GrapheneSheet;
+	public static Item item_GrapheneDust;
 	
 	//tools and armors
 	public static Item tool_TitaniumPickaxe;
@@ -81,10 +82,12 @@ public class Nanocraft {
 		item_rawTitaniumDust = new NanoItems().setUnlocalizedName("rawTitaniumDust");
 		item_pureTitaniumPile = new NanoItems().setUnlocalizedName("pureTitaniumPile");
 		item_GrapheneSheet = new NanoItems().setUnlocalizedName("GrapheneSheet");
+		item_GrapheneDust = new NanoItems().setUnlocalizedName("GrapheneDust");
 		GameRegistry.registerItem(item_TitaniumIngot, "TitaniumIngot");
 		GameRegistry.registerItem(item_rawTitaniumDust, "TitaniumDust");
 		GameRegistry.registerItem(item_pureTitaniumPile, "unprocessedTitanium");
 		GameRegistry.registerItem(item_GrapheneSheet, "GrapheneSheet");
+		GameRegistry.registerItem(item_GrapheneDust, "GrapheneDust");
 		
 		//tools and armors
 		tool_TitaniumPickaxe = new NanoPickaxe(material_Titanium).setUnlocalizedName("TitaniumPickaxe");
@@ -137,7 +140,7 @@ public class Nanocraft {
 		GameRegistry.addRecipe(new ItemStack(tool_TitaniumHoe), new Object[]{"TT ", "TS ", " S ", 'T', item_TitaniumIngot, 'S',  net.minecraft.item.Item.getItemById(280)}); 
 		
 		//Smelting recipes
-		//GameRegistry.addSmelting(ore_Titanium, new ItemStack(item_TitaniumIngot), 10); //may delete this smelting
+		GameRegistry.addSmelting(item_pureTitaniumPile, new ItemStack(item_TitaniumIngot), 10);
 		
 	}
 	

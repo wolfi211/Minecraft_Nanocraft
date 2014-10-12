@@ -2,6 +2,8 @@ item.TitaniumIngot.name=Titanium Ingot
 item.rawTitaniumDust.name=Raw Titanium Dust
 item.pureTitaniumPile.name=Pure Titanium Pile
 item.GrapheneSheet.name=Graphene Sheet
+item.GrapheneDust.name=Graphene Dust
+
 item.TitaniumPickaxe.name=Titanium Pickaxe
 item.TitaniumShovel.name=Titanium Shovel
 item.TitaniumAxe.name=Titanium Axe

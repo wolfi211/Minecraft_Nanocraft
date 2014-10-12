@@ -1,0 +1,48 @@
+[33mcommit 7fe38668dc77b7f5ac66a4419eef771ca11fde7a[m
+Author: wolfi211 <wolf.dani9@gmail.com>
+Date:   Sun Oct 12 00:36:32 2014 +0200
+
+    added text to changelog
+
+[33mcommit d3a821051772f5c3f2cdfcfafdca60d67ac04789[m
+Author: wolfi211 <wolf.dani9@gmail.com>
+Date:   Sun Oct 12 00:27:28 2014 +0200
+
+    worked on the melter, still WIP, added testing textures for it
+
+[33mcommit 1a6e0be208288c16d4084739a115aedf082fac1e[m
+Author: wolfi211 <wolf.dani9@gmail.com>
+Date:   Sun Oct 12 00:26:22 2014 +0200
+
+    added /bin to gitignore
+
+[33mcommit 05af3075a25175c15fe110c59ec7a66102f70257[m
+Author: wolfi211 <wolf.dani9@gmail.com>
+Date:   Sat Oct 11 19:34:28 2014 +0200
+
+    added Melter prep. to changelog
+
+[33mcommit 070163bee282191155b1e9030210d3a86a78283a[m
+Merge: e395401 bae9eb1
+Author: wolfi211 <wolf.dani9@gmail.com>
+Date:   Sat Oct 11 19:21:56 2014 +0200
+
+    Merge branch 'master' of https://github.com/wolfi211/Minecraft_Nanocraft
+
+[33mcommit bae9eb194cd99b7fed4186fc7d3b015c5341b306[m
+Author: wolfi211 <wolf.dani9@gmail.com>
+Date:   Sat Oct 11 19:14:04 2014 +0200
+
+    Initial commit
+
+[33mcommit e395401fc321955cad18c4a1784f6502a7b829ac[m
+Author: wolfi211 <wolf.dani9@gmail.com>
+Date:   Sat Oct 11 17:09:48 2014 +0200
+
+    Added the main directories
+
+[33mcommit ec1cad4154fd862bc574f12c2c579f0274740783[m
+Author: wolfi211 <wolf.dani9@gmail.com>
+Date:   Sat Oct 11 17:09:15 2014 +0200
+
+    Added gitignore file
