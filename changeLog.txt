@@ -1,6 +1,6 @@
 ####ChangeLog####
 
-v0.1 - Wolfi211		##2014.10.10##
+v0.1 - Wolfi211			##2014.10.10##
 	- Added:
 		- Creative tab for the mod
 		- Titanium Ingot
@@ -14,13 +14,16 @@ v0.1 - Wolfi211		##2014.10.10##
 		- recipe for Titanium Block
 		- started to create the "Melter"
 		
-v0.1.1 - Wolfi211	##2014.10.11##
+v0.1.1.1 - Wolfi211		##2014.10.11##
 	- Still working on the melter (WIP)
 	- found bug: melter has no front
 
-v0.1.2 - Wolfi211 	##2014.10.12##
+v0.1.1.2 - Wolfi211 	##2014.10.12##
 	- added item Graphene Dust
 	- added textures for rawTitaniumDust; pureTitaniumPile; GrapheneSheet; GrapheneDust
 	
-v0.1.3 - Wolfi211	##2014.10.12##
+v0.1.1.3 - Wolfi211		##2014.10.12##
 	- added world generator
+
+v0.1.1.4 - Wolfi211		##2014.10.12##
+	- more work done on Melter !!!NOT RUNNABLE STATE!!!

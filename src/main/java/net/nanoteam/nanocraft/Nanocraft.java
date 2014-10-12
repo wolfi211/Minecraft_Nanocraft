@@ -10,18 +10,23 @@ import net.minecraftforge.common.util.EnumHelper;
 import net.nanoteam.nanocraft.blocks.Melter;
 import net.nanoteam.nanocraft.blocks.NanoOres;
 import net.nanoteam.nanocraft.blocks.TitaniumBlock;
+import net.nanoteam.nanocraft.handler.GuiHandler;
 import net.nanoteam.nanocraft.items.NanoAxe;
 import net.nanoteam.nanocraft.items.NanoHoe;
 import net.nanoteam.nanocraft.items.NanoItems;
 import net.nanoteam.nanocraft.items.NanoPickaxe;
 import net.nanoteam.nanocraft.items.NanoShovel;
 import net.nanoteam.nanocraft.items.NanoSword;
+import net.nanoteam.nanocraft.tileentity.TileEntityMelter;
 import net.nanoteam.nanocraft.worldgen.NanoWGen;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -33,6 +38,9 @@ public class Nanocraft {
 	public static final String VERSION = "Alpha v0.1";
 	
 	NanoWGen eventWorldGen = new NanoWGen();
+	
+	@Instance(MODID)
+	public static Nanocraft instance;
 	
 	//tab(s)
 	public static CreativeTabs nanoTab;
@@ -68,6 +76,7 @@ public class Nanocraft {
 	//Factory Blocks
 	public static Block fact_Melter_Inactive;
 	public static Block fact_Melter_Active;
+	public static final int guiIDMelter = 0;
 	
 	@EventHandler
 	public void PreInit(FMLPreInitializationEvent preEvent){
@@ -134,6 +143,13 @@ public class Nanocraft {
 	@EventHandler
 	public void Init(FMLInitializationEvent event){
 		
+		//handler registry
+		NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
+		
+		
+		//tile entities
+		GameRegistry.registerTileEntity(TileEntityMelter.class, "Melter");
+		
 		//recipes
 		GameRegistry.addRecipe(new ItemStack(block_Titanium), new Object[]{"TTT", "TTT", "TTT", 'T', item_TitaniumIngot});
 		GameRegistry.addRecipe(new ItemStack(tool_TitaniumPickaxe), new Object[]{"TTT", " S ", " S ", 'T', item_TitaniumIngot, 'S',  net.minecraft.item.Item.getItemById(280)});
@@ -146,6 +162,7 @@ public class Nanocraft {
 		
 		//Smelting recipes
 		GameRegistry.addSmelting(item_pureTitaniumPile, new ItemStack(item_TitaniumIngot), 10);
+		
 		
 	}
 	
