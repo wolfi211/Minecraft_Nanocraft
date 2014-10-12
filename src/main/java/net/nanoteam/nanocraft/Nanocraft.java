@@ -16,6 +16,7 @@ import net.nanoteam.nanocraft.items.NanoItems;
 import net.nanoteam.nanocraft.items.NanoPickaxe;
 import net.nanoteam.nanocraft.items.NanoShovel;
 import net.nanoteam.nanocraft.items.NanoSword;
+import net.nanoteam.nanocraft.worldgen.NanoWGen;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -30,6 +31,8 @@ public class Nanocraft {
 
 	public static final String MODID = "NanoCraft";
 	public static final String VERSION = "Alpha v0.1";
+	
+	NanoWGen eventWorldGen = new NanoWGen();
 	
 	//tab(s)
 	public static CreativeTabs nanoTab;
@@ -123,6 +126,8 @@ public class Nanocraft {
 		GameRegistry.registerBlock(fact_Melter_Inactive, "MelterInactive");
 		GameRegistry.registerBlock(fact_Melter_Active, "MelterActive");
 		
+		//spawn
+		GameRegistry.registerWorldGenerator(eventWorldGen, 0);
 		
 	}
 	

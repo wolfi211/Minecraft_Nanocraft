@@ -17,4 +17,6 @@ item.TitaniumBoots=Titanium Boots
 tile.TitaniumOre.name=Titanium Ore
 tile.TitaniumBlock.name=Titanium Block
 
+tile.MelterInactive.name=Melter
+
 itemGroup.nanocraft=NanoCraft

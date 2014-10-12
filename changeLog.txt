@@ -21,3 +21,6 @@ v0.1.1 - Wolfi211	##2014.10.11##
 v0.1.2 - Wolfi211 	##2014.10.12##
 	- added item Graphene Dust
 	- added textures for rawTitaniumDust; pureTitaniumPile; GrapheneSheet; GrapheneDust
+	
+v0.1.3 - Wolfi211	##2014.10.12##
+	- added world generator
