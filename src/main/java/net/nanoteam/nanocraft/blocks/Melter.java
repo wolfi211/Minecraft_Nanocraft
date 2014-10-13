@@ -113,6 +113,12 @@ public class Melter extends BlockContainer {
 			((TileEntityMelter)world.getTileEntity(x,y,z)).setGuiDisplayName(itemstack.getDisplayName());
 		}
 	}
+
+	public static void updateMelterBlockState(boolean b, World worldObj,
+			int xCoord, int yCoord, int zCoord) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 
 }
