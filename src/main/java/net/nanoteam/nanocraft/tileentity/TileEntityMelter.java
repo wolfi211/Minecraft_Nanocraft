@@ -9,6 +9,7 @@ import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.tileentity.TileEntity;
 import net.nanoteam.nanocraft.blocks.Melter;
 
@@ -49,45 +50,61 @@ public class TileEntityMelter extends TileEntity implements ISidedInventory{
 	}
 	
 	@Override
-	public ItemStack decrStackSize(int p_70298_1_, int p_70298_2_) {
-		// TODO Auto-generated method stub
+	public ItemStack decrStackSize(int i, int j) {
+		if(this.slots[i] != null){
+			ItemStack itemstack;
+			
+			if(this.slots[i].stackSize <= j){
+				itemstack = this.slots[i];
+				return itemstack;
+			}else{
+				itemstack = this.slots[i].splitStack(j);
+				
+				if(this.slots[i].stackSize == 0){
+					this.slots[i] = null;
+				}
+			}
+		}
 		return null;
 	}
 	
 	@Override
-	public ItemStack getStackInSlotOnClosing(int p_70304_1_) {
-		// TODO Auto-generated method stub
-		return null;
+	public ItemStack getStackInSlotOnClosing(int i) {
+		if (this.slots[i] != null) {
+			ItemStack itemstack = this.slots[i];
+			this.slots[i] = null;
+			return itemstack;
+		}
+		else return null;
 	}
 	
 	@Override
-	public void setInventorySlotContents(int p_70299_1_, ItemStack p_70299_2_) {
-		// TODO Auto-generated method stub
+	public void setInventorySlotContents(int i, ItemStack itemstack) {
+		this.slots[i] = itemstack;
 		
+		if(itemstack != null && itemstack.stackSize > this.getInventoryStackLimit()){
+			itemstack.stackSize = this.getInventoryStackLimit();
+		}
 	}
 	
 	@Override
 	public int getInventoryStackLimit() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 	
 	@Override
-	public boolean isUseableByPlayer(EntityPlayer p_70300_1_) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean isUseableByPlayer(EntityPlayer entityplayer) {
+		return this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false : 
+			entityplayer.getDistanceSq((double) this.xCoord + 0.5D, (double) this.yCoord + 0.5D, (double) this.zCoord + 0.5D) <= 64.0D;
 	}
 	
 	@Override
 	public void openInventory() {
-		// TODO Auto-generated method stub
 		
 	}
 	
 	@Override
 	public void closeInventory() {
-		// TODO Auto-generated method stub
-		
 	}
 	
 	@Override
@@ -160,18 +177,41 @@ public class TileEntityMelter extends TileEntity implements ISidedInventory{
 	}
 	
 	private void smeltItem() {
-		// TODO Auto-generated method stub
+		if (this.canSmelt()){
+			ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.slots[0]);
+			
+			if(this.slots[2] == null){
+				this.slots[2] = itemstack.copy();
+			} else if (this.slots[2].isItemEqual(itemstack)){
+				this.slots[2].stackSize += itemstack.stackSize;
+			}
+			
+			this.slots [0].stackSize--;
+			
+			if (this.slots[0].stackSize <= 0) {
+				this.slots[0] = null;
+			}
+		}
 		
 	}
 
 	private boolean canSmelt() {
-		// TODO Auto-generated method stub
-		return false;
+		if (this.slots[0] == null) return false;
+		else {
+			ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.slots[0]);
+			
+			if(itemstack == null) return false;
+			if(this.slots[2] == null) return true;
+			if(!this.slots[2].isItemEqual(itemstack)) return false;
+			
+			int result = this.slots[2].stackSize + itemstack.stackSize;
+			
+			return (result <= getInventoryStackLimit() && result <= itemstack.getMaxStackSize());
+		}
 	}
 
 	private boolean isBurning() {
-		// TODO Auto-generated method stub
-		return false;
+		return this.burnTime > 0;
 	}
 
 	@Override

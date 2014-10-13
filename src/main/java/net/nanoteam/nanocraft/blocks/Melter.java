@@ -27,6 +27,8 @@ public class Melter extends BlockContainer {
 	
 	@SideOnly(Side.CLIENT)
 	private IIcon iconTop;
+	
+	private static boolean keepInventory;
 
 	public Melter(boolean isActive) {
 		super(Material.iron);
@@ -114,11 +116,24 @@ public class Melter extends BlockContainer {
 		}
 	}
 
-	public static void updateMelterBlockState(boolean b, World worldObj,
-			int xCoord, int yCoord, int zCoord) {
-		// TODO Auto-generated method stub
+	public static void updateMelterBlockState(boolean active, World worldObj, int xCoord, int yCoord, int zCoord) {
+		int i = worldObj.getBlockMetadata(xCoord, yCoord, zCoord);
 		
+		TileEntity tileentity = worldObj.getTileEntity(xCoord, yCoord, zCoord);
+		keepInventory = true;
+		
+		if(active){
+			worldObj.setBlock(xCoord, yCoord, zCoord, Nanocraft.fact_Melter_Active);
+		} else {
+			worldObj.setBlock(xCoord, yCoord, zCoord, Nanocraft.fact_Melter_Inactive);
+		}
+		
+		keepInventory = false;
+		worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, i, 2);
+		
+		if(tileentity != null) {
+			tileentity.validate();
+			worldObj.setTileEntity(xCoord, yCoord, zCoord, tileentity);
+		}
 	}
-	
-
 }

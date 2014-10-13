@@ -29,4 +29,10 @@ v0.1.1.4 - Wolfi211		##2014.10.12##
 	- more work done on Melter !!!NOT RUNNABLE STATE!!!
 
 v0.1.2.1 - Wolfi211		##2014.10.13##
-	- Melter GUI and basic working procedure started on Melter !!!Still WIP!!!
+	- Melter GUI and basic working procedure started on Melter
+	
+v0.1.2.2 - Wolfi211		##2014.10.13##
+	- Melter GUI almost done
+	- Found bug: melter input slots not working
+	- Found bug: melter front side not showing still
+	- Found bug: can break melter with empty hand on instahit, but not dropping | using a pick it IS dropping the item itself
